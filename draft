@@ -1,0 +1,137 @@
+aspect-w-16 aspect-h-9 sm:aspect-w-4 sm:aspect-h-2
+
+return db.collection('users')
+    .doc(session.metadata.email)
+    .collection('orders')
+    .doc(session.id)
+    .set({
+        amount :session.amount_total/100,
+        amount_shipping:session.total_details.amount_shipping/100,
+        images:Json.parse(session.metadata.images),
+        timestamp:admin.firestore.FieldValue.serverTimestamp()
+       
+
+    }) .then(()=>{
+        console.log(`SUCCESS: Order ${session.id} had been added to firebase`)
+    })
+
+
+
+  const checkoutSession = await axios.post( '/api/create-checkout-session', {
+            items:items,
+            email:session.user.email,
+          })
+           
+        const result = await stripe.redirectToCheckout({
+          //
+          sessionId : checkoutSession.data.id
+        })
+
+        if (result.error){
+          alert(result.error)
+        }
+
+"https://links.papareact.com/f90"
+
+// <div className="bg-cover bg-center h-64 sm:h-96" style={{backgroundImage: `url(./boy.jpg)`}}>
+        // </div>
+
+ {/* <div className="absolute z-0 w-32 h-32 rounded-full -right-10 -top-10">
+             <img src='/cotton.png' className=" h-full w-full group-hover:animate-bounce text-teal-500"/>
+        </div>
+        <div className="absolute bg-teal-500   z-0 w-32 h-32 rounded-full -left-10 -bottom-10"></div> */}
+
+
+.slick-arrow, .slick-prev,
+.slick-arrow, .slick-next{
+    background:yellow;
+    z-index:100;
+    width:47px;
+    height: 104px;
+
+}
+
+https://console.developers.google.com/apis/credentials/oauthclient/52884282506-71c62ecrcvp7de3gn20lsld3qrb89as2.apps.googleusercontent.com?project=52884282506
+
+http://localhost:3000/api/auth/callback/google
+
+.slick-prev::before, .slick-next::before{
+    display:none
+}
+
+
+
+
+   const foo = {
+
+      paths: mockData2.map((item)=>({
+          params:{
+              id:item.id.toString()
+              
+              
+          }
+      })),
+      
+      fallback: false // See the "fallback" section below
+    };
+    
+    console.log(foo)
+
+    return foo
+  }
+
+.svg-cover{
+    background: white;
+    backdrop-filter: blur(2rem);
+   
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+}
+.svg {
+    position: absolute;
+    width: calc(127% + 1.3px);
+    height: 30px;
+    bottom: 0;  
+
+}
+
+<div className="svg-cover">
+        <svg fill='url(#grad)' className="svg s overflow-hidden md:hidden z-5"data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+               <defs>
+
+                   <linearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                       <stop offset="0" stop-color="#65dfc9" stop-opacity="1"/>
+                       <stop offset="100%" stop-color="#6cdbeb" stop-opacity="1"/>
+
+                   </linearGradient>
+               </defs>
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+
+            </svg>
+            </div>
+
+  {/* <ImageContainer className=" flex flex-grow h-full z-0 relative" >
+                <Image className ="image-path image bg-cover bg-center h-full w-full inset-0 transform hover:scale-125 transition:ease-out duration:500" height={500} width={1800} src = "/bckground.jpg"/>
+                <svg className="svg md:hidden"data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+
+            </svg>
+            </ImageContainer>
+
+
+      
+    
+            
+    <div className="relative text-gray-900 rounded w-75 flex flex-row items-center justify-evenly md:flex-col justify-center">
+            
+          
+            <div className=" w-full shadow-sm rounded-lg z-10 p-2">
+                <h1 className="font-bold text-xl text-center">Lorem lorem lorem </h1>
+                <p className="text-center">lorem lorem lorem lorem lorem lorem lorem lorem</p>
+            </div>
+
+            <div className="w-full h-[150px]">
+            <img className=" absolute bottom-20 right-0 md:right-60 lg:right-80 md:bottom-5 md:h-[300px] z-o h-[150px] sm:h-[200px] md:bottom-0" src="./undraw.svg " />
+            </div>
+      
+            </div>
+             */}
