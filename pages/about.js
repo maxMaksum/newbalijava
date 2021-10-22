@@ -1,5 +1,6 @@
 
 import BannerCategory from '../components/BannerCategory'
+import FooterPage from '../components/FooterPage'
 import Card from '../components/Card'
 import Video from '../components/Video'
 import {aboutPages} from '../components/MockData2'
@@ -21,6 +22,9 @@ function About() {
             ))
         }
         </div>
+
+<FooterPage/>
+
         
         
 

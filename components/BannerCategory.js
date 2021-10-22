@@ -6,7 +6,7 @@ function HeaderBanner({pageCategory}) {
     return (
       <header>
         <div
-          className="bg-norepeat bg-center bg-cover h-64 mt-16"
+          className="bg-norepeat bg-center bg-cover h-64 mt-20"
           style={{backgroundImage: `url(${`/Tesla/model-s.jpg`})`}} 
          
         >
@@ -21,7 +21,7 @@ function HeaderBanner({pageCategory}) {
         </div>
 
         <div className="text-center p-4 bg-gray-50">
-        Hai Tide Beach Resort is an award-winning beach club, resort, and spa located on the golden sands of Lembongan Island’s Mushroom Bay. Our accommodation includes garden villas, traditional Balinese lumbungs, two restaurants, and a spa. We also offer a variety of aquatic activities like sea walking and parasailing.
+        Lembongan Island’s Mushroom Bay. Our accommodation includes garden villas, traditional Balinese lumbungs, two restaurants, and a spa. We also offer a variety of aquatic activities like sea walking and parasailing.
         </div>
       </header>
     );

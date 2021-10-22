@@ -11,17 +11,17 @@ function Description({id, title, price, description, category, image}) {
     )
 
     return (
-      <div className=" h-screen w-100 m-5 bg-red-500">
-        <div className="sm:flex">
+      <div className=" h-screen w-100 m-5 bg-gray-50">
+        <div className="sm:flex bg-gray-900 h-full">
           <div className="h-96 w-100  sm:h-screen sm:w-2/3 bg-gray-200 relative">
             <Image src={image} layout="fill" objectFit="cover" />
           </div>
-          <div className="h-1/3 sm:w-1/3">
-            <p className="text-md font-bold italic text-gray-700 px-2">{category}</p>
+          <div className="sm:w-1/3  text-gray-50 ">
+            <p className="text-md font-bold italic px-2">{category}</p>
             <div>
               <h4 className="text-center p-2 font-bold ">{title}</h4>
 
-              <p className="text-xs m-2 text-center">
+              <p className="text-sm space-y-2 space-x-1 m-2 text-center">
                 {description}
               </p>
             </div>

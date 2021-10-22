@@ -10,9 +10,9 @@ function Card({title, category, description}) {
           style={{backgroundImage: `url(${`/Tesla/model-s.jpg`})`}} 
          
         >
-          <div className="flex items-center justify-center w-full h-full bg-gray-900 bg-opacity-50">
-            <div className="text-center">
-              <h1 className="text-2xl font-semibold text-white uppercase lg:text-3xl">
+          <div className="flex items-end justify-center w-full h-full bg-gray-900 bg-opacity-50 ">
+            <div className="text-center mb-4">
+              <h1 className="text-xl font-semibold text-white uppercase lg:text-3xl">
                 {category} 
               </h1>
               <p className="text-white uppercase text-md capitalize">Lorem Ipsum</p>

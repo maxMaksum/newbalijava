@@ -1,6 +1,7 @@
 
 import ContactDetails from '../components/ContactDetails'
-import {ContactLists} from '../components/MockData2'
+import FooterPage from '../components/FooterPage'
+
 function Contact() {
     return (
       <div className="mx-auto mt-16 p-4 sm:flex items-center justify-center bg-indigo-100">
@@ -91,6 +92,8 @@ function Contact() {
         </div>
         <div className=" h-screen sm:w-1/3 ml-8">
         <ContactDetails/>
+        <FooterPage/>
+
         </div>
       </div>
     );

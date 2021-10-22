@@ -2,15 +2,12 @@ import Header from './Header'
 import FooterSticky from './FooterSticky'
 function Layout({children}) {
     return (
-      <div className="relative h-full">
-           <Header />
-        <div className="flex flex-col">
-         <div>
+      <div className="relative ">
+       
+          <Header />
           {children}
-          </div>
-         
           <FooterSticky />
-        </div>
+      
       </div>
     );
 }

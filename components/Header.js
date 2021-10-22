@@ -19,22 +19,23 @@ function Header() {
  
  
     return (
-      <header className="fixed top-0 z-50 w-full">
+      <header className="fixed top-0 z-50 w-full bg-gray-100 mx-auto h-20">
         {/* top header */}
         <div className="relative">
-        <div className="flex items-center justify-between bg-gray-50 bg-opacity-50 ">
-         <div className="flex items-center p-2 space-x-4">
-          <div className="p-0  rounded-full flex items-center">
+        <div className="flex items-center justify-between  h-20">
+         <div className="flex items-center justify-center space-x-4">
+          <div className="p-0  rounded-full flex items-center relative h-16 w-16">
             <Image
               onClick={() => router.push("/")}
               src="/logo1.png"
-              width={"40"}
-              height={"40"}
-              objectFit="contain"
+              layout="fill"
+              // width={"60"}
+              // height={"60"}
+              // objectFit="cover"
               className="cursor-pointer"
             />
           </div>
-          <h1>BaliJava Spirit</h1>
+          <h1 className="font-bold text-xl text-gray-700">BaliJava Spirit</h1>
           </div>
 
 
@@ -45,7 +46,7 @@ function Header() {
           <div className="flex items-center justify-around
           
           ">
-          <ShoppingCartIcon className="h-8 mr-10" />
+          {/* <ShoppingCartIcon className="h-8 mr-10" /> */}
           <div
                 onClick={changeMenu}
                 className="lg:hidden link mx-4 relative flex items-center"

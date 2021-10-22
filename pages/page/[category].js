@@ -2,7 +2,7 @@ import Head from 'next/head'
 import {MockData2, Category} from '../../components/MockData2'
 import PageSection from '../../components/PageSection'
 import BannerCategory from '../../components/BannerCategory'
-
+import FooterPage from '../../components/FooterPage'
 
 
 export async function getStaticProps(context) {
@@ -63,7 +63,9 @@ function page({data, filteredData, pageCategory}) {
                 ))
          }
         </main>
+
       </div>
+      <FooterPage/>
     </div>
         
     )

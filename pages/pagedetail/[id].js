@@ -5,7 +5,7 @@ import Description from '../../components/Description'
 
 import BannerCategory from '../../components/BannerCategory'
 
-
+import FooterPage from '../../components/FooterPage'
 
 export async function getStaticProps(context) {
   const {params} = context
@@ -33,7 +33,7 @@ function page({data}) {
   console.log(data)
 
     return (
-      <div className="bg-gray-50 mx-auto">
+      <div className="bg-gray-100 mx-auto">
       <Head>
         <title>BALIJAVA SPIRIT</title>
       </Head>
@@ -52,6 +52,7 @@ function page({data}) {
             image={data.image}
             
             />
+            <FooterPage/>
         </main>
       </div>
     </div>

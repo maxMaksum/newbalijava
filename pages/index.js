@@ -23,22 +23,19 @@ export default function Home({data}) {
 
   return (
     
-    <div className="bg-gray-100 mx-auto ">
+    <div className="bg-gray-500 w-screen">
       <Head>
         <title>BALIJAVA SPIRIT</title>
       </Head>
 
-      <div className="mx-auto "> 
-     
-        <main onMouseEnter={closeMenu}  className=" h-screen w-100 ">
+        <main onMouseEnter={closeMenu}  className=" h-screen w-full ">
           <Banner/>
           <ContentWelcome/>
           <Posts products={data}/>
           <FooterPage/>
         </main>
      
-        
-      </div>
+      
     </div>
   );
 }
