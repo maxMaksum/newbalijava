@@ -1,22 +1,20 @@
 
 import '../styles/globals.css'
-import '../public/index.css'
-import store from '../redux/store'
-import { Provider } from 'react-redux'
+// import '../public/index.css'
 import Layout from '../components/Layout'
 import { StoreProvider } from '../utils/Store';
 
 function MyApp({ Component, pageProps }) {
   return (
 
-    <Provider store={store}>
+   <div>
       <StoreProvider>
         <Layout>
           <Component {...pageProps} />
           </Layout>
         </StoreProvider>
-    </Provider>
-  
+   
+  </div>
   );
     
 }

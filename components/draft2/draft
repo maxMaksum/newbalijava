@@ -1,0 +1,130 @@
+import Head from 'next/head'
+import { GraphQLClient, gql } from 'graphql-request'
+
+import Section from '../components/products/Section'
+import Banner from '../components/card/Banner'
+import FooterPage from '../components/FooterPage'
+
+import {Category} from '../components/MockData'
+
+import React, { useContext, useEffect, useState } from 'react';
+import { Store } from '../utils/Store'
+
+export default function Products({data, videos}) {
+
+const { state, dispatch } = useContext(Store);
+
+const[url, setUrl] = useState(null)
+
+if(url==null){
+  console.log("waiting")
+} else console.log(url)
+ 
+useEffect (async()=>{
+
+    const randomThumbnail = await randomVideo()
+    const url = randomThumbnail.thumnail.url
+    
+      setUrl(url)
+    
+   
+},[])
+
+
+const randomVideo =  () => {
+  const url=  videos[Math.floor(Math.random() * videos.length)]
+  return url
+ 
+}
+
+
+const Genre = videos.map(v=>{
+  return v
+})
+
+const filterVideos = (videos, genre) => {
+  return videos.filter((video) => video.tags.includes(genre))
+}
+
+
+
+if(url == null){
+    console.log("loading")
+}else console.log("yes")
+
+
+  const closeMenu=()=>{
+    dispatch({type:"CLOSE_MENU"})
+  }
+
+  return (
+    <div className="bg-gray-500 w-screen">
+      <Head>
+        <title>BALIJAVA SPIRIT</title>
+      </Head>
+
+      <main onMouseEnter={closeMenu} className=" h-screen w-full ">
+       
+        <div className="main-video">
+            {url==null?("loading"):(<img 
+            src={url}
+           
+          />)}
+          
+        </div>
+              <Section/>
+        <FooterPage />
+      </main>
+    </div>
+  );
+}
+
+
+export async function getServerSideProps(){
+    
+    const url =process.env.ENDPOINT
+    const graphQLClient = new GraphQLClient(url, {
+        headers: {
+          authorization: process.env.GRAPH_CMS_TOKEN
+        },
+      })
+
+ const query = gql`
+ query{
+    videos{
+      createdAt
+      id,
+      title,
+      slug,
+      seen,
+      description,
+      tags
+      thumnail {
+        url
+      }
+      mp4 {
+        url
+      }
+    }
+  }
+  `
+  const dataG = await graphQLClient.request(query)
+  const videos = dataG.videos
+  console.log(videos)
+   
+   const useDummyData = true
+   let res =""
+   res = useDummyData? Category : await fetch(`https://fakestoreapi.com/products`).then(res=>res.json())
+
+  const data =res
+
+  return{
+      props:{
+          data,
+          videos
+     
+      }
+  }
+}
+
+

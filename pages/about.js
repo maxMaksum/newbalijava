@@ -1,9 +1,9 @@
 
-import BannerCategory from '../components/BannerCategory'
+import BannerCategory from '../components/card/BannerCategory'
 import FooterPage from '../components/FooterPage'
-import Card from '../components/Card'
-import Video from '../components/Video'
-import {aboutPages} from '../components/MockData2'
+import Card from '../components/card/Card'
+import Video from '../components/video/Video'
+import {aboutPages} from '../components/MockData'
 function About() {
     return (
         <div className=""  >

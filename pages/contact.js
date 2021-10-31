@@ -1,6 +1,6 @@
 
-import ContactDetails from '../components/ContactDetails'
-import FooterPage from '../components/FooterPage'
+import ContactDetails from '../components/card/ContactDetails'
+import FooterPage from '../components/footer/FooterPage'
 
 function Contact() {
     return (
