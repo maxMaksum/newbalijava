@@ -1,24 +1,17 @@
 import Head from 'next/head'
 import Banner from '../components/card/Banner'
-import FooterPage from '../components/footer/FooterPage'
+
 import Brands from '../components/video/Brands'
 import Posts from '../components/posts/Posts'
-import {Products} from '../components/MockData'
 import { GraphQLClient, gql } from 'graphql-request'
 
 import React, { useContext } from 'react';
 import { Store } from '../utils/Store'
 
-export default function Home({data, videos}) {
+export default function Home({videos}) {
 
-  console.log(videos)
-  const { state, dispatch } = useContext(Store);
 
- 
-
-  const changeMenu=()=>{
-    dispatch({type:"CHANGE_MENU"})
-  }
+  const { dispatch } = useContext(Store);
 
   const closeMenu=()=>{
     dispatch({type:"CLOSE_MENU"})
@@ -41,7 +34,7 @@ export default function Home({data, videos}) {
           <Posts products={videos} title={"Active Wear"}/>
           <Posts products={videos} title={"Casual"}/>
          
-          <FooterPage/>
+      
         </main>
      
       
@@ -83,18 +76,16 @@ query{
 `
 const dataG = await graphQLClient.request(query)
 const videos = dataG.videos
-console.log(videos)
- 
-   const useDummyData = true
-   let res =""
-   res = useDummyData? Products : videos
 
-  const data =res
+ 
+ 
+
+
 
   return{
       props:{
           videos,
-          data,
+        
      
       }
   }

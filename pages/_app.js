@@ -6,15 +6,13 @@ import { StoreProvider } from '../utils/Store';
 
 function MyApp({ Component, pageProps }) {
   return (
-
-   <div>
+   
       <StoreProvider>
         <Layout>
           <Component {...pageProps} />
-          </Layout>
-        </StoreProvider>
-   
-  </div>
+        </Layout>
+      </StoreProvider>
+
   );
     
 }

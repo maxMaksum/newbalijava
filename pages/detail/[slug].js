@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import FooterPage from '../../components/footer/FooterPage';
 import Image from "next/image";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+
+import {useState } from "react";
 import { PlusIcon, XIcon } from "@heroicons/react/solid";
-import Link from 'next/link'
+
 import ReactPlayer from "react-player/lazy";
 
 import { GraphQLClient, gql } from 'graphql-request'

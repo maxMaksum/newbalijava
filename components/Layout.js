@@ -3,13 +3,9 @@ import FooterSticky from './footer/FooterSticky'
 function Layout({children}) {
     return (
       <div className="relative ">
-       
-          <Header />
-          <div>
-          {children}
-          </div>
-          <FooterSticky />
-      
+        <Header />
+        <div>{children}</div>
+        <FooterSticky />
       </div>
     );
 }

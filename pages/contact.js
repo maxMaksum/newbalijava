@@ -1,6 +1,6 @@
 
-import ContactDetails from '../components/card/ContactDetails'
-import FooterPage from '../components/footer/FooterPage'
+// import ContactDetails from '../components/card/ContactDetails'
+// import FooterPage from '../components/footer/FooterPage'
 
 function Contact() {
     return (
@@ -21,10 +21,7 @@ function Contact() {
                 type="text"
                 placeholder="Jane"
               />
-              {/* <p class="text-red-500 text-xs italic">
-                Please fill out this field.
-              </p> */}
-              {/* border-red-500  */}
+           
             </div>
             <div class="w-full md:w-1/2 px-3">
               <label
@@ -91,8 +88,8 @@ function Contact() {
         </form>
         </div>
         <div className=" h-screen sm:w-1/3 ml-8">
-        <ContactDetails/>
-        <FooterPage/>
+        {/* <ContactDetails/>
+        <FooterPage/> */}
 
         </div>
       </div>

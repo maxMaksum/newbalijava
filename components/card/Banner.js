@@ -30,7 +30,7 @@ function Banner() {
                 </div>
               </div>
             </div>
-            {/* <ContentWelcome/> */}
+          
           </div>
         ))}
       </Slider>
