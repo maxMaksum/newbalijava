@@ -1,46 +1,54 @@
-import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {FooterData} from "../MockData"
-import Link from 'next/link'
-import { faMapMarkerAlt, faPhone, faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons'
-import { faWhatsapp, faInstagram,faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FooterData } from "../MockData";
+import Link from "next/link";
+import {
+  faMapMarkerAlt,
+  faPhone,
+  faEnvelopeSquare,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faWhatsapp,
+  faInstagram,
+  faFacebook,
+} from "@fortawesome/free-brands-svg-icons";
 
 function FooterPage() {
-
-    return (
-      <div className="relative">
-        <div
-          className="bg-norepeat bg-center bg-cover h-96"
-          style={{ backgroundImage: `url(${`/Tesla/model-s.jpg`})` }}
-        >
-          <div className="flex flex-col items-start justify-center w-full h-full bg-gray-900 bg-opacity-50">
-            
-            {FooterData.map((p) => (
-              <div key={p.id}className="p-2">
-               
-                  <h1 className=" text-xl font-semibold text-white uppercase  mx-2 link">
-                    {p.title}
-                  </h1>
-                  <div className="ml-4">
-                    {p.detail.map((d, i)=>(
-                      <div key={i} className="flex space-x-2 text-gray-300">
-                        {d.title=="Whatsapp"&& (<div><FontAwesomeIcon icon={faWhatsapp}/></div>)||d.title=="Email" && (<div><FontAwesomeIcon icon={faEnvelopeSquare}/></div>)||d.title=="Instagram" && (<div><FontAwesomeIcon icon={faInstagram}/></div>)||d.title=="Facebook" && (<div><FontAwesomeIcon icon={faFacebook }/></div>)}
-                        
-                          <Link href={`/${d.link}`}>
-                          <p className="link">{d.title}</p>
-                          </Link>
-                        
-                        
-                        
+  return (
+    <div className="relative">
+      <div
+        className="bg-gray-900 bg-cover p-8"
+        // style={{ backgroundImage: `url(${`/Tesla/model-s.jpg`})` }}
+      >
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          {FooterData.map((p) => (
+            <div key={p.id} className="p-2">
+              <h1 className=" text-md font-semibold text-white uppercase ">
+                {p.title}
+              </h1>
+              <div className="">
+                {p.detail.map((d) => (
+                  <Link href={`/${d.link}`}>
+                    <div
+                      key={d.link}
+                      className="flex justify-start items-center text-gray-300 space-x-4 space-y-2 mt-4"
+                    >
+                      <div className="h-10 w-10  flex items-center justify-center">
+                        <img
+                          src={d.logo}
+                          className="rounded obeject-cover bg-center bg-norepeat"
+                        />
                       </div>
-                    ))}
-                  </div>
-            
+                      <p className="text-sm text-gray-50">{d.title}</p>
+                    </div>
+                  </Link>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
-    );
+    </div>
+  );
 }
 
-export default FooterPage
+export default FooterPage;

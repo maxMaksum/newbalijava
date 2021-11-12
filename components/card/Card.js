@@ -1,13 +1,11 @@
 
-
-
 function Card({title, category, description}) {
 
     return (
       <header>
         <div
           className="bg-norepeat bg-center bg-cover h-64"
-          style={{backgroundImage: `url(${`/Tesla/model-s.jpg`})`}} 
+          style={{backgroundImage: `url(${`/images01/model-s.jpg`})`}} 
          
         >
           <div className="flex items-end justify-center w-full h-full bg-gray-900 bg-opacity-50 ">

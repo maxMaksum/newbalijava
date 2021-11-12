@@ -1,97 +1,70 @@
 import Image from "next/image";
-import React, {useRef, useState, useEffect} from 'react'
+import React, { useRef, useState, useEffect } from "react";
+import { Category } from "../MockData";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMapMarkerAlt,
+  faPhone,
+  faEnvelopeSquare,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faWhatsapp,
+  faInstagram,
+  faFacebook,
+} from "@fortawesome/free-brands-svg-icons";
 
 function Brands() {
+  useEffect(() => {
+    setPlay(true);
+    videoRef.current.play();
+  }, []);
 
-  useEffect(()=>{
-    setPlay(true)
-    videoRef.current.play()
-  },[])
+  const [play, setPlay] = useState(true);
 
-  const [play, setPlay] =useState(true)
+  const videoRef = useRef();
 
-  const videoRef = useRef()
-  
-  const onVideoPress=()=>{
-      if(play){
-          videoRef.current.pause()
-          setPlay(false)
-      }else{
-          videoRef.current.play()
-          setPlay(true)
-      }
-     
-  }
+  const onVideoPress = () => {
+    if (play) {
+      videoRef.current.pause();
+      setPlay(false);
+    } else {
+      videoRef.current.play();
+      setPlay(true);
+    }
+  };
 
-  
   return (
-    <section className="relative flex flex-col md:flex-row justify-center items-center gap-6 px-8 max-w-[1400px] mx-auto">
-
-  
-      <div  onClick={onVideoPress} className="brand group">
-        <Image src="/images/disnep.png" layout="fill" objectFit="cover" />
-        <video
-          ref={videoRef}
-          muted
-          loop
+    <section className="relative flex space-x-6 overflow-y-hidden overflow-x-scroll scrollbar-default p-2 -m-2">
+      {Category.map((cat) => (
+        <div
+          key={cat.id}
           onClick={onVideoPress}
-          className="hidden group-hover:inline rounded-lg object-cover"
+          className="brand group relative min-w-[300px] min-h-[200px] md:min-w-[330px]"
         >
-          <source src="/videos01/Embroidery-1.mp4" type="video/mp4" />
-        </video>
-      </div>
+          <div className="absolute top-0 left-0 group-hover:hidden bg-gray-900 w-full h-full bg-cover z-50 bg-opacity-25 flex items-center justify-center">
+            <p className="text-lg text-gray-50">{cat.title}</p>
 
-      <div className="brand group">
-        <Image src="/images/pixar.png" layout="fill" objectFit="cover" />
-        <video
-          autoPlay
-          loop
-          playsInline
-          className="hidden group-hover:inline rounded-lg object-cover"
-        >
-          <source src="/videos01/Embroidery-2.mp4" type="video/mp4" />
-        </video>
-      </div>
+            <img src={cat.logo} className="h-10 w-100 rounded" />
+          </div>
 
-      <div className="brand group">
-        <Image src="/images/marvel.png" layout="fill" objectFit="cover" />
-        <video
-          autoPlay
-          loop
-          playsInline
-          className="hidden group-hover:inline rounded-lg object-cover"
-        >
-          <source src="/videos01/Sewing.mp4" type="video/mp4" />
-        </video>
-      </div>
-
-      <div className="brand group">
-        <Image src="/images/starwars.png" layout="fill" objectFit="cover" />
-        <video
-          autoPlay
-          loop
-          playsInline
-          className="hidden group-hover:inline rounded-lg object-cover"
-        >
-          <source src="/videos01/Linen.mp4" type="video/mp4" />
-        </video>
-      </div>
-
-      <div className="brand group">
-        <Image
-          src="/images/national-geographic.png"
-          layout="fill"
-          objectFit="cover"
-        />
-        <video
-          autoPlay
-          loop
-          playsInline
-          className="hidden group-hover:inline rounded-lg object-cover"
-        >
-          <source src="/videos01/Linen-1.mp4" type="video/mp4" />
-        </video>
-      </div>
+          <Image
+            src={cat.thumbnail}
+            layout="fill"
+            objectFit="cover"
+            className=" group-hover:opacity-5"
+          />
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            playsInline
+            onClick={onVideoPress}
+            className="hidden group-hover:inline rounded-lg object-cover"
+          >
+            <source src={cat.video} type="video/mp4" />
+          </video>
+        </div>
+      ))}
     </section>
   );
 }

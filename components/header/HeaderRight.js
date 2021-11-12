@@ -15,13 +15,13 @@ function HeaderRight() {
  
 
     return (
-        <div className=" flex items-center space-x-2 w-full justify-around text-gray-900 text-s">
+        <div className=" flex items-center  justify-end w-full  text-gray-900 text-s space-x-8">
 
-              <div className="flex items-center justify-center">
+              <div className="flex items-center">
                   {staticPages.map((p, i)=>(
                       <div key={i} >
                         <Link href={`/${p.title}`}>
-                       <p className=" p-2 font-bold uppercase link">{p.title}</p>
+                       <p className=" p-2 font-bold uppercase hover:cursor-pointer">{p.title}</p>
                        </Link>
                     </div>
                     ))}
@@ -32,7 +32,7 @@ function HeaderRight() {
                  
                  <Link href={`/page/${data.category}`}>
                
-                 <p className=" font-bold uppercase link">{data.category}</p>
+                 <p className=" font-bold uppercase hover:cursor-pointer">{data.category}</p>
                 
               
                </Link>

@@ -32,7 +32,7 @@ function HeaderMenu({changeMenu, menu}) {
             {staticPages.map((p, i) => (
               <div key={i}>
                 <Link href={`/${p.title}`}>
-                  <p className=" p-2 uppercase link">{p.title}</p>
+                  <p className=" p-2 uppercase cursor-pointer link">{p.title}</p>
                 </Link>
               </div>
             ))}
@@ -41,7 +41,7 @@ function HeaderMenu({changeMenu, menu}) {
           {uniqueCategory.map((data) => (
             <div key={data.id}>
               <Link href={`/page/${data.category}`}>
-                <p className=" p-2 font-bold uppercase link">{data.category}</p>
+                <p className=" p-2  uppercase link">{data.category}</p>
               </Link>
             </div>
           ))}

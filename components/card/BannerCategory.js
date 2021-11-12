@@ -1,27 +1,33 @@
 
 
 
-function HeaderBanner({pageCategory}) {
+function HeaderBanner({title, description, playVideo, url}) {
 
     return (
       <header>
         <div
-          className="bg-norepeat bg-center bg-cover h-64 mt-20"
-          style={{backgroundImage: `url(${`/Tesla/model-s.jpg`})`}} 
-         
+          className="hero min-h-screen"
+          style={{ backgroundImage: `url(${url})` }}
         >
-          <div className="flex items-center justify-center w-full h-full bg-gray-900 bg-opacity-50">
-            <div className="text-center">
-              <h1 className="text-2xl font-semibold text-white uppercase lg:text-3xl">
-                {pageCategory} 
-              </h1>
-              
+          <div className="hero-overlay bg-opacity-60"></div>
+          <div className="text-center hero-content text-neutral-content">
+            <div className="max-w-md">
+              <h1 className="mb-5 text-5xl font-bold">{title}</h1>
+              <p className="mb-5 line-clamp-2">
+                {description}
+              </p>
+              <button onClick={playVideo} className="btn glass hover:pointer">
+              <img
+                  src="/images/play-icon-white.svg"
+                  alt=""
+                  className="h-6 md:h-8"
+                />
+                <span className="uppercase font-medium tracking-wide">
+                  Play
+                </span>
+              </button>
             </div>
           </div>
-        </div>
-
-        <div className="text-center p-4 bg-gray-50">
-        Lembongan Island’s Mushroom Bay. Our accommodation includes garden villas, traditional Balinese lumbungs, two restaurants, and a spa. We also offer a variety of aquatic activities like sea walking and parasailing.
         </div>
       </header>
     );
