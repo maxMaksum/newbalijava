@@ -3,18 +3,20 @@ import Banner from "../components/card/Banner";
 import Brands from "../components/video/Brands";
 import Posts from "../components/posts/Posts";
 import { GraphQLClient, gql } from "graphql-request";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Store } from "../utils/Store";
-import { getPosts } from "../services";
+import { getPosts,getBannerData, getHeaderData } from "../services";
 
-export default function Home({ posts }) {
+export default function Home({ posts, bannerdata, HeaderData }) {
   const { dispatch } = useContext(Store);
 
   const closeMenu = () => {
     dispatch({ type: "CLOSE_MENU" });
   };
 
-  console.log(posts);
+  useEffect(()=>{
+    dispatch({ type: 'SET_HEADERS', payload: { HeaderData } });
+  },[])
 
   return (
     <div className=" mx-auto">
@@ -24,9 +26,9 @@ export default function Home({ posts }) {
 
       <main
         onMouseEnter={closeMenu}
-        className="relative min-h-screen bg-gray-200"
+        className="relative min-h-screen bg-gray-100"
       >
-        <Banner />
+        <Banner bannerData={bannerdata}/>
         <Brands />
 
         <Posts products={posts} title={"Cotton"} />
@@ -41,9 +43,14 @@ export default function Home({ posts }) {
 
 export async function getStaticProps() {
   const posts = await getPosts();
+  const bannerdata= await getBannerData()
+  const HeaderData=await getHeaderData()
   return {
     props: {
       posts,
+      bannerdata,
+      HeaderData
+      
     },
   };
 }

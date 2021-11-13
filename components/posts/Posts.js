@@ -52,7 +52,7 @@ function Posts({ products, title }) {
   const filterVideos2 = videosFilter();
 
   return (
-    <div className="relative flex flex-col space-y-2 my-5  max-w-[1400px] mx-auto">
+    <div className="shadow-lg relative flex flex-col space-y-2 my-5  max-w-[1400px] mx-auto border-b-2 border-t-2 border-gray-300">
       <h1 className="font-bold text-left uppercase text-green-800 ml-4">
         {title}
       </h1>

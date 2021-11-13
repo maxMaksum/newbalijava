@@ -21,14 +21,7 @@ function About() {
                 />
             ))
         }
-        </div>
-
-{/* <FooterPage/> */}
-
-        
-        
-
-        
+        </div>    
 </div>
     );
   }

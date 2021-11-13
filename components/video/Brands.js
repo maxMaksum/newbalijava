@@ -16,7 +16,6 @@ import {
 function Brands() {
   useEffect(() => {
     setPlay(true);
-    videoRef.current.play();
   }, []);
 
   const [play, setPlay] = useState(true);
@@ -34,7 +33,7 @@ function Brands() {
   };
 
   return (
-    <section className="relative flex space-x-6 overflow-y-hidden overflow-x-scroll scrollbar-default p-2 -m-2">
+    <section className="relative flex space-x-6 overflow-y-hidden overflow-x-scroll scrollbar-default p-2 -m-2 border-t-2 border-gray-200 shadow-md">
       {Category.map((cat) => (
         <div
           key={cat.id}
@@ -55,9 +54,6 @@ function Brands() {
           />
           <video
             ref={videoRef}
-            autoPlay
-            loop
-            playsInline
             onClick={onVideoPress}
             className="hidden group-hover:inline rounded-lg object-cover"
           >

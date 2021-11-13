@@ -34,14 +34,12 @@ function page({ post }) {
   const playVideo = () => {
     setShowPlayer(!showPlayer);
   };
-  console.log(post.mp4.url);
+  console.log(post);
   return (
-    <div className="relative">
+    <div className="">
       {!showPlayer && (
-        <div>
+        <div >
           <BannerCategory
-            title={post.title}
-            description={post.description}
             playVideo={playVideo}
             url={post.thumbnails.url}
           />
@@ -49,7 +47,7 @@ function page({ post }) {
       )}
 
       {showPlayer && (
-        <div className="z-50 min-h-96">
+        <div className="z-50 min-h-96 absolute top-0">
           <Video playVideo={playVideo} url={post.mp4.url} />
         </div>
       )}

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 function Section({ id, title, slug, description, image }) {
   return (
-    <div className="flex flex-col rounded-lg overflow-hidden shadow-xl cursor-pointer border-[3px] border-[#f9f9f9] border-opacity-10  hover:border-opacity-80 hover:shadow-2xl transform hover:scale-105 transition duration-300 bg-gray-50">
+    <div className=" flex flex-col rounded-lg shadow-lg overflow-hidden cursor-pointer border-[3px] border-[#f9f9f9] border-opacity-10  hover:border-opacity-80 hover:shadow-2xl transform hover:scale-105 transition duration-300 bg-gray-50">
       <div className="relative min-w-[250px] min-h-[170px] md:min-w-[330px]">
         <Image
           src={image.url}

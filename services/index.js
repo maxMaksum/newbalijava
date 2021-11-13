@@ -9,6 +9,38 @@ const graphQLClient = new GraphQLClient(url, {
   },
 });
 
+export const getBannerData = async () => {
+  const query = gql`
+    query MyQuery {
+      banners {
+        id
+        slug
+        title
+        images {
+          url
+        }
+      }
+    }
+  `;
+
+  const dataG = await graphQLClient.request(query);
+  return dataG.banners;
+};
+
+export const getHeaderData = async () => {
+  const query = gql`
+  query MyQuery {
+    links {
+      id
+      title
+      slug
+    }
+  }
+  `;
+
+  const dataG = await graphQLClient.request(query);
+  return dataG.links;
+};
 export const getPosts = async () => {
   const query = gql`
     query {

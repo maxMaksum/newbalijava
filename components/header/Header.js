@@ -1,11 +1,12 @@
 import Image from "next/image";
+
 import {
   MenuIcon,
   SearchIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import HeaderMenu from "./HeaderMenu";
 import HeaderRight from "./HeaderRight";
 import { Store } from "../../utils/Store";
@@ -14,6 +15,9 @@ function Header() {
   const { state, dispatch } = useContext(Store);
 
   const router = useRouter();
+
+
+
 
   const changeMenu = () => {
     dispatch({ type: "CHANGE_MENU" });
@@ -25,7 +29,7 @@ function Header() {
       <div className="relative">
         <div className="flex items-center justify-between  h-20">
           <div className="flex items-center justify-center space-x-4">
-            <div className="p-0  rounded-full flex items-center relative h-16 w-16 ml-4">
+            <div className="p-0  rounded-full flex items-center relative h-16 w-16 ml-4 p-2 rounded-full bg-green-500 shadow-2xl ">
               <Image
                 onClick={() => router.push("/")}
                 src="/images01/Logo Balijava.png"
@@ -33,7 +37,9 @@ function Header() {
                 className="cursor-pointer rounded-full"
               />
             </div>
-            <h1 className="font-bold text-xl text-gray-900 cursor-pointer">BaliJava Spirit</h1>
+            <h1 className="font-bold text-xl text-gray-900 cursor-pointer">
+              BaliJava Spirit
+            </h1>
           </div>
 
           {/* right */}

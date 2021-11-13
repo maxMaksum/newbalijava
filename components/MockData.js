@@ -338,45 +338,75 @@ export const SliderData = [
 export const staticPages = [
   {
     id: 1,
-    image: "/Tesla/accessories.jpg",
-    title: "about",
-    category: "Factory Services",
-    description:
-      "Our Team consist of people from different culture and experience. There are teenagers, men and housewife. Who need to work and support their family.As our factories are in Bali Java, so are our staffs.",
+    image: "/images01/facebook.png",
+    title: "Facebook",
+    link: "Factory Services",
+    
   },
   {
     id: 2,
-    image: "/Tesla/model-s.jpg",
-    title: "contact",
-    category: "Bride",
-    description:
-      "Our Team consist of people from different culture and experience. There are teenagers, men and housewife. Who need to work and support their family.As our factories are in Bali Java, so are our staffs.",
+    image: "/images01/instagram.png",
+    title: "Instagram",
+    link: "Bride",
+    
+  },
+  {
+    id: 3,
+    image: "/images01/googlemap.png",
+    title: "Google Map",
+    link: "Bride",
+    
   },
 ];
+
+export const SocialMedia = [
+  {
+    id: 1,
+    image: "/images01/facebook.png",
+    title: "Facebook",
+    link: "Factory Services",
+    
+  },
+  {
+    id: 2,
+    image: "/images01/instagram.png",
+    title: "Instagram",
+    link: "Bride",
+    
+  },
+  {
+    id: 3,
+    image: "/images01/googlemap.png",
+    title: "Google Map",
+    link: "Bride",
+    
+  },
+];
+
+
+
 
 export const aboutPages = [
   {
     id: 1,
     image: "/Tesla/accessories.jpg",
     title: "History",
-    category: "Factory Services",
-    description:
-      "Our Team consist of people from different culture and experience. There are teenagers, men and housewife. Who need to work and support their family.As our factories are in Bali Java, so are our staffs.",
+    link: "Factory Services",
+    
   },
   {
     id: 2,
     image: "/Tesla/model-s.jpg",
     title: "Vision & Mission",
-    category: "Bride",
-    description:
-      "Our Team consist of people from different culture and experience. There are teenagers, men and housewife. Who need to work and support their family.As our factories are in Bali Java, so are our staffs.",
+    link: "Bride",
+    
   },
 
   {
     id: 3,
     image: "/Tesla/model-x.jpg",
     title: "Our Staff",
-    category: "Bride",
+    link: "Bride",
     description:
       "Our Team consist of people from different culture and experience. There are teenagers, men and housewife. Who need to work and support their family.As our factories are in Bali Java, so are our staffs.",
   },
