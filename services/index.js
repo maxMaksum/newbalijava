@@ -29,17 +29,57 @@ export const getBannerData = async () => {
 
 export const getHeaderData = async () => {
   const query = gql`
-  query MyQuery {
-    links {
-      id
-      title
-      slug
+    query MyQuery {
+      links {
+        id
+        title
+        slug
+      }
     }
-  }
   `;
 
   const dataG = await graphQLClient.request(query);
   return dataG.links;
+};
+
+export const getCategories = async () => {
+  const query = gql`
+    query MyQuery {
+      categories {
+        id
+        slug
+        title
+      }
+    }
+  `;
+
+  const dataG = await graphQLClient.request(query);
+  return dataG.categories;
+};
+
+export const getCategory = async (pageSlug) => {
+  const query = gql`
+    query MyQuery {
+      category(where: { slug: "linen" }) {
+        slug
+        title
+        video {
+          id
+          url
+        }
+        thumbnails {
+          url
+        }
+      }
+    }
+  `;
+
+  const variables = {
+    pageSlug: pageSlug,
+  };
+  const dataG = await graphQLClient.request(query, variables);
+
+  return dataG.category;
 };
 export const getPosts = async () => {
   const query = gql`

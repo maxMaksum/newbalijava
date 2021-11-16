@@ -6,7 +6,7 @@ import ContentWelcome from "../card/ContentWelcome";
 import { SliderData } from "../MockData";
 import { SocialMedia } from "../MockData";
 
-import { getBannerData } from "../../services/index";
+
 
 function Banner({ bannerData }) {
   const [BannerData, setBannerData] = useState([]);
@@ -32,7 +32,7 @@ function Banner({ bannerData }) {
             >
               <div className=" w-full h-full flex items-center justify-center bg-gradient-to-t from gray-900 to transparent top-0 left-0">
                 <div className="px-2 rounded z-22 absolute text-gray-50 text-center bottom-2 left-2 bg-gray-900  bg-opacity-50 ">
-                  <p className="font-bold">Model S</p>
+                  <p className="font-bold">{homedata.title}</p>
                 </div>
               </div>
             </div>

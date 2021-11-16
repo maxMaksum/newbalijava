@@ -27,7 +27,7 @@ function FooterPage() {
               </h1>
               <div className="">
                 {p.detail.map((d) => (
-                  <Link href={`/${d.link}`}>
+                  <Link href={`/${d.link}`}  key={d.link}>
                     <div
                       key={d.link}
                       className="flex justify-start items-center text-gray-300 space-x-4 space-y-2 mt-4"

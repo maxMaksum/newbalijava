@@ -1,64 +1,38 @@
-import ReactPlayer from "react-player/lazy";
 import { useState } from "react";
-
-// import FooterPage from "../../components/Footer/FooterPage"
 import BannerCategory from "../../components/card/BannerCategory";
 import Content from "../../components/card/Content";
 import CardScroll from "../../components/card/CardScroll";
-import Image from "next/image";
-import { GraphQLClient, gql } from "graphql-request";
 import Video from "../../components/video/Video";
-export async function getServerSideProps(pageContext) {
-  const url = process.env.ENDPOINT;
+import {
+  getPosts,
+  getPostDetails,
+  getCategories,
+  getCategory,
+} from "../../services";
 
-  const graphQLClient = new GraphQLClient(url, {
-    headers: {
-      authorization: process.env.GRAPH_CMS_TOKEN,
-    },
-  });
-
-  const pageSlug = pageContext.query.slug;
-
-  const query = gql`
-    query MyQuery($pageSlug: String!) {
-      category(where: { slug: $pageSlug }) {
-        title
-        slug
-        description
-        thumbnails {
-          id
-          url
-        }
-        videos {
-          id
-          title
-          slug
-          thumbnails {
-            id
-            url
-          }
-        }
-        video {
-          id
-          url
-        }
-      }
-    }
-  `;
-
-  const variables = {
-    pageSlug: pageSlug,
-  };
-
-  const dataG = await graphQLClient.request(query, variables);
-  const data = dataG.category;
+export async function getStaticProps({ params }) {
+  const pageSlug = params.slug;
+  const category = await getCategory(pageSlug);
 
   return {
-    props: { data }, // will be passed to the page component as props
+    props: { category }, // will be passed to the page component as props
   };
 }
 
-const categories = ({ data }) => {
+export async function getStaticPaths() {
+  // const posts = await getPosts();
+  const posts = await getCategories();
+
+  // Get the paths we want to pre-render based on posts
+  const paths = posts.map((post) => ({
+    params: { slug: post.slug },
+  }));
+
+  return { paths, fallback: false };
+}
+
+function page({ category }) {
+  console.log(category);
   const [showPlayer, setShowPlayer] = useState(false);
 
   const playVideo = () => {
@@ -66,26 +40,21 @@ const categories = ({ data }) => {
   };
 
   return (
-    <div className="relative">
+    <div className="">
       {!showPlayer && (
         <div>
-          <BannerCategory
-            title={data.title}
-            description={data.description}
-            playVideo={playVideo}
-            url={data.thumbnails.url}
-          />
+          <BannerCategory playVideo={playVideo} url={category.thumbnails.url} />
         </div>
       )}
 
       {showPlayer && (
-        <div className="z-50 min-h-96">
-          <Video playVideo={playVideo} url={data.video.url} />
+        <div className="z-50 min-h-96 absolute top-0">
+          <Video playVideo={playVideo} url={category.video.url} />
         </div>
       )}
 
-      <div className="relative mt-4">
-        <Content title={data.title} description={data.description} />
+      <div className="relative my-4">
+        <Content title={category.title} description={category.description} />
       </div>
       <div>
         <CardScroll />
@@ -93,6 +62,6 @@ const categories = ({ data }) => {
       {/* <FooterPage/> */}
     </div>
   );
-};
+}
 
-export default categories;
+export default page;

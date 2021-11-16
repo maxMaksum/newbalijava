@@ -1,10 +1,14 @@
 import { createContext, useReducer } from "react";
-
+import Cookies from "js-cookie";
 export const Store = createContext();
 
 const initialState = {
   menuItem: true,
-  headerData: {},
+  headerData: {
+    headerdata: Cookies.get("Items")
+      ? JSON.parse(Cookies.get("headerItems"))
+      : [],
+  },
 };
 
 const reducer = (state, action) => {
@@ -22,7 +26,10 @@ const reducer = (state, action) => {
         menuItem: !state.menuItem,
       };
     case "SET_HEADERS":
-      return { ...state, headerData: action.payload };
+      return {
+        ...state,
+        headerData: Cookies.set("headerItems", JSON.stringify(action.payload)),
+      };
 
     default:
       return state;

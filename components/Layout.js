@@ -4,11 +4,11 @@ import FooterPage from "./footer/FooterPage";
 
 
 
-function Layout({ children }) {
+function Layout({ children , navigation,category}) {
  
   return (
     <div className="relative ">
-      <Header />
+      <Header navigation={navigation} category={category}/>
       <div>
         {children}
         <FooterSticky />

@@ -1,23 +1,16 @@
 import Image from "next/image";
 
-import {
-  MenuIcon,
-  SearchIcon,
-  ShoppingCartIcon,
-} from "@heroicons/react/outline";
+import { MenuIcon, SearchIcon } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
 import { useState, useContext, useEffect } from "react";
 import HeaderMenu from "./HeaderMenu";
 import HeaderRight from "./HeaderRight";
 import { Store } from "../../utils/Store";
 
-function Header() {
+function Header({ navigation, category }) {
   const { state, dispatch } = useContext(Store);
 
   const router = useRouter();
-
-
-
 
   const changeMenu = () => {
     dispatch({ type: "CHANGE_MENU" });
@@ -44,7 +37,7 @@ function Header() {
 
           {/* right */}
           <div className="hidden sm:flex flex-wrap  w-2/3 mr-10">
-            <HeaderRight />
+            <HeaderRight category={category} navigation={navigation} />
           </div>
           <div
             className="flex items-center justify-around

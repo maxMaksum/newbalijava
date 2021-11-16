@@ -38,11 +38,8 @@ function page({ post }) {
   return (
     <div className="">
       {!showPlayer && (
-        <div >
-          <BannerCategory
-            playVideo={playVideo}
-            url={post.thumbnails.url}
-          />
+        <div>
+          <BannerCategory playVideo={playVideo} url={post.thumbnails.url} />
         </div>
       )}
 

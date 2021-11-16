@@ -19,7 +19,7 @@ function Video({ playVideo, url }) {
           <span className="font-semibold">Playing</span>
           <div
             className="cursor-pointer w-8 h-8 flex justify-center items-center rounded-lg opacity-50 hover:opacity-75 hover:bg-[#0F0F0F]"
-            onClick={() => setShowPlayer(!showPlayer)}
+            onClick={playVideo}
           >
             <XIcon className="h-5" />
           </div>
